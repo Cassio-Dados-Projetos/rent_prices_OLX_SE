@@ -35,7 +35,6 @@ def WebScraping():
             title_text = title.text
             price_text = price.text
             link_href = link.get_attribute('href')
-            print(f'{title_text}, {price_text}, {link_href}')
             dbConn.setOnDataBase(title_text, price_text, link_href)
 
         driver.quit()
