@@ -4,6 +4,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import dbConn
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 servico = Service()
 
@@ -11,7 +15,7 @@ options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--ignore-ssl-errors')
 options.add_argument('--headless')
-options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36')
+options.add_argument('user-agent=' + os.getenv('USER_AGENT'))
 
 driver = webdriver.Chrome(service=servico, options=options)
 
